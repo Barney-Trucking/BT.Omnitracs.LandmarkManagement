@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns3="http://datatype.oloxwebws" xmlns:intf="http://websvcs.oloxwebws" xmlns:wsi="http://ws-i.org/profiles/basic/1.1/xsd" xmlns:tns2="http://exception.sharedws" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:impl="http://websvcs.oloxwebws" targetNamespace="http://websvcs.oloxwebws" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://websvcs.oloxwebws">
+      <xsd:import namespace="http://datatype.oloxwebws" />
+      <xsd:element name="removeLandmarkAliasResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="addLandmarkAlias">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="companyId" nillable="true" type="xsd:string" />
+            <xsd:element name="landmarkName" nillable="true" type="xsd:string" />
+            <xsd:element name="landmarkAlias" nillable="true" type="xsd:string" />
+            <xsd:element name="alias" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="addLandmarkAliasResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="createLandmark">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="companyId" nillable="true" type="xsd:string" />
+            <xsd:element name="defineBoundaryUsing" nillable="true" type="xsd:string" />
+            <xsd:element name="landmark" nillable="true" type="tns3:Landmark" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="createLandmarkResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getLandmarkNamesList">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="companyId" nillable="true" type="xsd:string" />
+            <xsd:element name="landmarkName" nillable="true" type="xsd:string" />
+            <xsd:element name="numOfLandmarks" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getLandmarkNamesListResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getLandmarkNamesListReturn" nillable="true" type="impl:ArrayOf_1232819503_303925874_nillable_LandmarkNames" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="editLandmarkAttributes">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="companyId" nillable="true" type="xsd:string" />
+            <xsd:element name="landmarkName" nillable="true" type="xsd:string" />
+            <xsd:element name="landmarkAlias" nillable="true" type="xsd:string" />
+            <xsd:element name="attributes" nillable="true" type="impl:ArrayOf_1232819503_303925874_nillable_LandmarkAttribute" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="editLandmarkAttributesResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getLandmarkDetails">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="companyId" nillable="true" type="xsd:string" />
+            <xsd:element name="landmarkName" nillable="true" type="xsd:string" />
+            <xsd:element name="landmarkAlias" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getLandmarkDetailsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getLandmarkDetailsReturn" nillable="true" type="tns3:Landmark" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="editLandmark">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="companyId" nillable="true" type="xsd:string" />
+            <xsd:element name="landmarkName" nillable="true" type="xsd:string" />
+            <xsd:element name="landmarkAlias" nillable="true" type="xsd:string" />
+            <xsd:element name="defineBoundaryUsing" nillable="true" type="xsd:string" />
+            <xsd:element name="landmark" nillable="true" type="tns3:Landmark" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="editLandmarkResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="deleteLandmark">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="companyId" nillable="true" type="xsd:string" />
+            <xsd:element name="landmarkName" nillable="true" type="xsd:string" />
+            <xsd:element name="landmarkAlias" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="deleteLandmarkResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getPositionReference">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="targetCompanyId" nillable="true" type="xsd:string" />
+            <xsd:element name="divisionId" nillable="true" type="xsd:string" />
+            <xsd:element name="latitude" type="xsd:double" />
+            <xsd:element name="longitude" type="xsd:double" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getPositionReferenceResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getPositionReferenceReturn" nillable="true" type="tns3:PositionReference" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="suspendLandmarkNotifications">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="companyId" nillable="true" type="xsd:string" />
+            <xsd:element name="landmarkName" nillable="true" type="xsd:string" />
+            <xsd:element name="landmarkAlias" nillable="true" type="xsd:string" />
+            <xsd:element name="asset" nillable="true" type="tns3:AssetIdentifier" />
+            <xsd:element name="assetType" nillable="true" type="xsd:string" />
+            <xsd:element name="suspensionFlag" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="suspendLandmarkNotificationsResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getSuspendedLandmarkNotifications">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="companyId" nillable="true" type="xsd:string" />
+            <xsd:element name="landmarkId" nillable="true" type="xsd:string" />
+            <xsd:element name="asset" nillable="true" type="tns3:AssetIdentifier" />
+            <xsd:element name="assetType" nillable="true" type="xsd:string" />
+            <xsd:element name="numberOfRecords" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getSuspendedLandmarkNotificationsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getSuspendedLandmarkNotificationsReturn" nillable="true" type="impl:ArrayOf_1232819503_303925874_nillable_SuspendedLandmark" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="removeLandmarkAlias">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="companyId" nillable="true" type="xsd:string" />
+            <xsd:element name="landmarkName" nillable="true" type="xsd:string" />
+            <xsd:element name="landmarkAlias" nillable="true" type="xsd:string" />
+            <xsd:element name="alias" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="ArrayOf_1232819503_303925874_nillable_LandmarkNames">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="LandmarkNames" nillable="true" type="tns3:LandmarkNames" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_1232819503_303925874_nillable_LandmarkAttribute">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="LandmarkAttribute" nillable="true" type="tns3:LandmarkAttribute" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_1232819503_303925874_nillable_SuspendedLandmark">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SuspendedLandmark" nillable="true" type="tns3:SuspendedLandmark" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://exception.sharedws">
+      <xsd:complexType name="WSException">
+        <xsd:sequence>
+          <xsd:element name="message" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="WSException" nillable="true" type="tns2:WSException" />
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://datatype.oloxwebws">
+      <xsd:complexType name="Landmark">
+        <xsd:sequence>
+          <xsd:element name="address" nillable="true" type="tns3:Address" />
+          <xsd:element name="aliases" nillable="true" type="tns3:ArrayOf_303925874_1440052060_nillable_string" />
+          <xsd:element name="assocLandmarkNames" nillable="true" type="tns3:ArrayOf_303925874_1440052060_nillable_string" />
+          <xsd:element name="assocPrimaryLandmarkName" nillable="true" type="xsd:string" />
+          <xsd:element name="attributes" nillable="true" type="tns3:ArrayOfLandmarkAttribute" />
+          <xsd:element name="circCentroidLat" type="xsd:double" />
+          <xsd:element name="circCentroidLong" type="xsd:double" />
+          <xsd:element name="circRadius" type="xsd:double" />
+          <xsd:element name="createTime" nillable="true" type="xsd:string" />
+          <xsd:element name="createUser" nillable="true" type="xsd:string" />
+          <xsd:element name="divisionID" nillable="true" type="xsd:string" />
+          <xsd:element name="lastModTime" nillable="true" type="xsd:string" />
+          <xsd:element name="lastModUser" nillable="true" type="xsd:string" />
+          <xsd:element name="name" nillable="true" type="xsd:string" />
+          <xsd:element name="preArrRadius" type="xsd:double" />
+          <xsd:element name="typeID" nillable="true" type="xsd:string" />
+          <xsd:element name="useInProxRef" nillable="true" type="xsd:string" />
+          <xsd:element name="polygon" nillable="true" type="tns3:Polygon" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Address">
+        <xsd:sequence>
+          <xsd:element name="city" nillable="true" type="xsd:string" />
+          <xsd:element name="country" nillable="true" type="xsd:string" />
+          <xsd:element name="postalCode" nillable="true" type="xsd:string" />
+          <xsd:element name="state" nillable="true" type="xsd:string" />
+          <xsd:element name="street" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_303925874_1440052060_nillable_string">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="LandmarkAttribute">
+        <xsd:sequence>
+          <xsd:element name="attributeID" nillable="true" type="xsd:string" />
+          <xsd:element name="value" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfLandmarkAttribute">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="LandmarkAttribute" nillable="true" type="tns3:LandmarkAttribute" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Polygon">
+        <xsd:sequence>
+          <xsd:element name="centroidLat" type="xsd:double" />
+          <xsd:element name="centroidLong" type="xsd:double" />
+          <xsd:element name="vertices" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="LandmarkNames">
+        <xsd:sequence>
+          <xsd:element name="aliases" nillable="true" type="tns3:ArrayOf_303925874_1440052060_nillable_string" />
+          <xsd:element name="name" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PositionReference">
+        <xsd:sequence>
+          <xsd:element name="distance" type="xsd:double" />
+          <xsd:element name="direction" nillable="true" type="xsd:string" />
+          <xsd:element name="placeName" nillable="true" type="xsd:string" />
+          <xsd:element name="placeAlias" nillable="true" type="xsd:string" />
+          <xsd:element name="placeAlias2" nillable="true" type="xsd:string" />
+          <xsd:element name="placeAlias3" nillable="true" type="xsd:string" />
+          <xsd:element name="placeAlias4" nillable="true" type="xsd:string" />
+          <xsd:element name="placeAlias5" nillable="true" type="xsd:string" />
+          <xsd:element name="placeType" nillable="true" type="xsd:string" />
+          <xsd:element name="city" nillable="true" type="xsd:string" />
+          <xsd:element name="stateProv" nillable="true" type="xsd:string" />
+          <xsd:element name="postal" nillable="true" type="xsd:string" />
+          <xsd:element name="country" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AssetIdentifier">
+        <xsd:sequence>
+          <xsd:element name="id" nillable="true" type="xsd:string" />
+          <xsd:element name="scac" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SuspendedLandmark">
+        <xsd:sequence>
+          <xsd:element name="asset" nillable="true" type="tns3:AssetIdentifier" />
+          <xsd:element name="assetType" nillable="true" type="xsd:string" />
+          <xsd:element name="landmarkNames" nillable="true" type="tns3:LandmarkNames" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getSuspendedLandmarkNotificationsResponse">
+    <wsdl:part name="parameters" element="impl:getSuspendedLandmarkNotificationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="createLandmarkResponse">
+    <wsdl:part name="parameters" element="impl:createLandmarkResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSuspendedLandmarkNotificationsRequest">
+    <wsdl:part name="parameters" element="impl:getSuspendedLandmarkNotifications" />
+  </wsdl:message>
+  <wsdl:message name="WSException">
+    <wsdl:part name="fault" element="tns2:WSException" />
+  </wsdl:message>
+  <wsdl:message name="removeLandmarkAliasRequest">
+    <wsdl:part name="parameters" element="impl:removeLandmarkAlias" />
+  </wsdl:message>
+  <wsdl:message name="getLandmarkDetailsResponse">
+    <wsdl:part name="parameters" element="impl:getLandmarkDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="addLandmarkAliasRequest">
+    <wsdl:part name="parameters" element="impl:addLandmarkAlias" />
+  </wsdl:message>
+  <wsdl:message name="getLandmarkDetailsRequest">
+    <wsdl:part name="parameters" element="impl:getLandmarkDetails" />
+  </wsdl:message>
+  <wsdl:message name="deleteLandmarkRequest">
+    <wsdl:part name="parameters" element="impl:deleteLandmark" />
+  </wsdl:message>
+  <wsdl:message name="editLandmarkAttributesResponse">
+    <wsdl:part name="parameters" element="impl:editLandmarkAttributesResponse" />
+  </wsdl:message>
+  <wsdl:message name="removeLandmarkAliasResponse">
+    <wsdl:part name="parameters" element="impl:removeLandmarkAliasResponse" />
+  </wsdl:message>
+  <wsdl:message name="editLandmarkResponse">
+    <wsdl:part name="parameters" element="impl:editLandmarkResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPositionReferenceRequest">
+    <wsdl:part name="parameters" element="impl:getPositionReference" />
+  </wsdl:message>
+  <wsdl:message name="editLandmarkRequest">
+    <wsdl:part name="parameters" element="impl:editLandmark" />
+  </wsdl:message>
+  <wsdl:message name="getLandmarkNamesListRequest">
+    <wsdl:part name="parameters" element="impl:getLandmarkNamesList" />
+  </wsdl:message>
+  <wsdl:message name="deleteLandmarkResponse">
+    <wsdl:part name="parameters" element="impl:deleteLandmarkResponse" />
+  </wsdl:message>
+  <wsdl:message name="editLandmarkAttributesRequest">
+    <wsdl:part name="parameters" element="impl:editLandmarkAttributes" />
+  </wsdl:message>
+  <wsdl:message name="getPositionReferenceResponse">
+    <wsdl:part name="parameters" element="impl:getPositionReferenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="getLandmarkNamesListResponse">
+    <wsdl:part name="parameters" element="impl:getLandmarkNamesListResponse" />
+  </wsdl:message>
+  <wsdl:message name="suspendLandmarkNotificationsResponse">
+    <wsdl:part name="parameters" element="impl:suspendLandmarkNotificationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="createLandmarkRequest">
+    <wsdl:part name="parameters" element="impl:createLandmark" />
+  </wsdl:message>
+  <wsdl:message name="suspendLandmarkNotificationsRequest">
+    <wsdl:part name="parameters" element="impl:suspendLandmarkNotifications" />
+  </wsdl:message>
+  <wsdl:message name="addLandmarkAliasResponse">
+    <wsdl:part name="parameters" element="impl:addLandmarkAliasResponse" />
+  </wsdl:message>
+  <wsdl:portType name="OLOXWebSvcs">
+    <wsdl:operation name="removeLandmarkAlias">
+      <wsdl:input name="removeLandmarkAliasRequest" message="impl:removeLandmarkAliasRequest" />
+      <wsdl:output name="removeLandmarkAliasResponse" message="impl:removeLandmarkAliasResponse" />
+      <wsdl:fault name="WSException" message="impl:WSException" />
+    </wsdl:operation>
+    <wsdl:operation name="addLandmarkAlias">
+      <wsdl:input name="addLandmarkAliasRequest" message="impl:addLandmarkAliasRequest" />
+      <wsdl:output name="addLandmarkAliasResponse" message="impl:addLandmarkAliasResponse" />
+      <wsdl:fault name="WSException" message="impl:WSException" />
+    </wsdl:operation>
+    <wsdl:operation name="createLandmark">
+      <wsdl:input name="createLandmarkRequest" message="impl:createLandmarkRequest" />
+      <wsdl:output name="createLandmarkResponse" message="impl:createLandmarkResponse" />
+      <wsdl:fault name="WSException" message="impl:WSException" />
+    </wsdl:operation>
+    <wsdl:operation name="getLandmarkNamesList">
+      <wsdl:input name="getLandmarkNamesListRequest" message="impl:getLandmarkNamesListRequest" />
+      <wsdl:output name="getLandmarkNamesListResponse" message="impl:getLandmarkNamesListResponse" />
+      <wsdl:fault name="WSException" message="impl:WSException" />
+    </wsdl:operation>
+    <wsdl:operation name="editLandmarkAttributes">
+      <wsdl:input name="editLandmarkAttributesRequest" message="impl:editLandmarkAttributesRequest" />
+      <wsdl:output name="editLandmarkAttributesResponse" message="impl:editLandmarkAttributesResponse" />
+      <wsdl:fault name="WSException" message="impl:WSException" />
+    </wsdl:operation>
+    <wsdl:operation name="getLandmarkDetails">
+      <wsdl:input name="getLandmarkDetailsRequest" message="impl:getLandmarkDetailsRequest" />
+      <wsdl:output name="getLandmarkDetailsResponse" message="impl:getLandmarkDetailsResponse" />
+      <wsdl:fault name="WSException" message="impl:WSException" />
+    </wsdl:operation>
+    <wsdl:operation name="editLandmark">
+      <wsdl:input name="editLandmarkRequest" message="impl:editLandmarkRequest" />
+      <wsdl:output name="editLandmarkResponse" message="impl:editLandmarkResponse" />
+      <wsdl:fault name="WSException" message="impl:WSException" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteLandmark">
+      <wsdl:input name="deleteLandmarkRequest" message="impl:deleteLandmarkRequest" />
+      <wsdl:output name="deleteLandmarkResponse" message="impl:deleteLandmarkResponse" />
+      <wsdl:fault name="WSException" message="impl:WSException" />
+    </wsdl:operation>
+    <wsdl:operation name="getPositionReference">
+      <wsdl:input name="getPositionReferenceRequest" message="impl:getPositionReferenceRequest" />
+      <wsdl:output name="getPositionReferenceResponse" message="impl:getPositionReferenceResponse" />
+      <wsdl:fault name="WSException" message="impl:WSException" />
+    </wsdl:operation>
+    <wsdl:operation name="suspendLandmarkNotifications">
+      <wsdl:input name="suspendLandmarkNotificationsRequest" message="impl:suspendLandmarkNotificationsRequest" />
+      <wsdl:output name="suspendLandmarkNotificationsResponse" message="impl:suspendLandmarkNotificationsResponse" />
+      <wsdl:fault name="WSException" message="impl:WSException" />
+    </wsdl:operation>
+    <wsdl:operation name="getSuspendedLandmarkNotifications">
+      <wsdl:input name="getSuspendedLandmarkNotificationsRequest" message="impl:getSuspendedLandmarkNotificationsRequest" />
+      <wsdl:output name="getSuspendedLandmarkNotificationsResponse" message="impl:getSuspendedLandmarkNotificationsResponse" />
+      <wsdl:fault name="WSException" message="impl:WSException" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OLOXWebSvcsSoapBinding" type="impl:OLOXWebSvcs">
+    <wsaw:UsingAddressing wsdl:required="false" />
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="removeLandmarkAlias">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="removeLandmarkAliasRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="removeLandmarkAliasResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <wsdlsoap:fault use="literal" name="WSException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addLandmarkAlias">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="addLandmarkAliasRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="addLandmarkAliasResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <wsdlsoap:fault use="literal" name="WSException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="createLandmark">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="createLandmarkRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="createLandmarkResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <wsdlsoap:fault use="literal" name="WSException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getLandmarkNamesList">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getLandmarkNamesListRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getLandmarkNamesListResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <wsdlsoap:fault use="literal" name="WSException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="editLandmarkAttributes">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="editLandmarkAttributesRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="editLandmarkAttributesResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <wsdlsoap:fault use="literal" name="WSException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getLandmarkDetails">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getLandmarkDetailsRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getLandmarkDetailsResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <wsdlsoap:fault use="literal" name="WSException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="editLandmark">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="editLandmarkRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="editLandmarkResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <wsdlsoap:fault use="literal" name="WSException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deleteLandmark">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="deleteLandmarkRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="deleteLandmarkResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <wsdlsoap:fault use="literal" name="WSException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPositionReference">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getPositionReferenceRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPositionReferenceResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <wsdlsoap:fault use="literal" name="WSException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="suspendLandmarkNotifications">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="suspendLandmarkNotificationsRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="suspendLandmarkNotificationsResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <wsdlsoap:fault use="literal" name="WSException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getSuspendedLandmarkNotifications">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getSuspendedLandmarkNotificationsRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getSuspendedLandmarkNotificationsResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <wsdlsoap:fault use="literal" name="WSException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OLOXWebSvcsService">
+    <wsdl:port name="OLOXWebSvcs" binding="impl:OLOXWebSvcsSoapBinding">
+      <wsdlsoap:address location="https://services.omnitracs.com:443/oloxWebWS/services/OLOXWebSvcs" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
